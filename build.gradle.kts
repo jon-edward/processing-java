@@ -1,14 +1,20 @@
 plugins {
-    id("java")
+    application
 }
 
 group = "org.example"
 version = "1.0-SNAPSHOT"
 
+application {
+    mainClass = "org.example.Main"
+}
+
 repositories {
-    mavenCentral()
+    flatDir {
+        dirs("libs")
+    }
 }
 
 dependencies {
-    implementation(fileTree("libs"))
+    implementation(":core")
 }
